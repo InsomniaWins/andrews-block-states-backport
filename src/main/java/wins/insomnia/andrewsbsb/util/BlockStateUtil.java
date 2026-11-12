@@ -8,7 +8,7 @@ import net.minecraft.world.chunk.Chunk;
 
 import wins.insomnia.andrewsbsb.AndrewsBSB;
 import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
-import wins.insomnia.andrewsbsb.block.IBlockStateHolder;
+import wins.insomnia.andrewsbsb.api.blockstate.block.IBlockStateHolder;
 import wins.insomnia.andrewsbsb.mixinduck.IChunkBlockStateDataHolder;
 import wins.insomnia.andrewsbsb.mixinduck.IMixinBlockStateHolder;
 import wins.insomnia.andrewsbsb.world.chunk.ChunkBlockStateData;

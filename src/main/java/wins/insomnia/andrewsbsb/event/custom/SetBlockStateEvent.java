@@ -6,7 +6,7 @@ import net.minecraft.world.World;
 import cpw.mods.fml.common.eventhandler.Event;
 import wins.insomnia.andrewsbsb.AndrewsBSB;
 import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
-import wins.insomnia.andrewsbsb.block.IBlockStateHolder;
+import wins.insomnia.andrewsbsb.api.blockstate.block.IBlockStateHolder;
 import wins.insomnia.andrewsbsb.mixinduck.IMixinBlockStateHolder;
 
 public class SetBlockStateEvent extends Event {

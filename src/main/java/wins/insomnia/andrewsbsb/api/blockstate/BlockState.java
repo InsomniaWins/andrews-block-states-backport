@@ -9,7 +9,7 @@ import java.util.Optional;
 import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 
-import wins.insomnia.andrewsbsb.block.IBlockStateHolder;
+import wins.insomnia.andrewsbsb.api.blockstate.block.IBlockStateHolder;
 import wins.insomnia.andrewsbsb.mixinduck.IMixinBlockStateHolder;
 
 public class BlockState {
