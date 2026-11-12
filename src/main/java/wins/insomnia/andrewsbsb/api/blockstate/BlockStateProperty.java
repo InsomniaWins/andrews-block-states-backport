@@ -1,4 +1,4 @@
-package wins.insomnia.andrewsbsb.world.blockstate;
+package wins.insomnia.andrewsbsb.api.blockstate;
 
 public abstract class BlockStateProperty<T extends Comparable<T>> {
 

@@ -1,6 +1,6 @@
-package wins.insomnia.andrewsbsb.world.blockstate.property;
+package wins.insomnia.andrewsbsb.api.blockstate.property;
 
-import wins.insomnia.andrewsbsb.world.blockstate.BlockStateProperty;
+import wins.insomnia.andrewsbsb.api.blockstate.BlockStateProperty;
 
 public class PropertyInteger extends BlockStateProperty<Integer> {
 

@@ -7,8 +7,8 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.world.chunk.Chunk;
 
 import wins.insomnia.andrewsbsb.AndrewsBSB;
+import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
 import wins.insomnia.andrewsbsb.util.BlockStateUtil;
-import wins.insomnia.andrewsbsb.world.blockstate.BlockState;
 import wins.insomnia.andrewsbsb.world.blockstate.BlockStatePalette;
 
 public class ChunkBlockStateData {

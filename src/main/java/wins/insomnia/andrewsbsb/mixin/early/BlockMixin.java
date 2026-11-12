@@ -11,10 +11,10 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 import wins.insomnia.andrewsbsb.AndrewsBSB;
+import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
 import wins.insomnia.andrewsbsb.event.custom.SetBlockStateEvent;
 import wins.insomnia.andrewsbsb.util.BlockStateUtil;
 import wins.insomnia.andrewsbsb.util.context.BlockStateEventContext;
-import wins.insomnia.andrewsbsb.world.blockstate.BlockState;
 
 @Mixin(Block.class)
 public class BlockMixin {

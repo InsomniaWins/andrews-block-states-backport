@@ -11,6 +11,8 @@ import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 
 import wins.insomnia.andrewsbsb.AndrewsBSB;
+import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
+import wins.insomnia.andrewsbsb.api.blockstate.BlockStateContainer;
 import wins.insomnia.andrewsbsb.util.BlockStateUtil;
 
 public class BlockStatePalette {

@@ -1,4 +1,4 @@
-package wins.insomnia.andrewsbsb.world.blockstate;
+package wins.insomnia.andrewsbsb.api.blockstate;
 
 import java.util.ArrayList;
 import java.util.Collections;
