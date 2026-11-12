@@ -1,0 +1,8 @@
+{
+  "required": true,
+  "minVersion": "0.8.5-GTNH",
+  "plugin": "wins.insomnia.andrewsbsb.mixin.AndrewsBSBMixinConfigPlugin",
+  "refmap": "mixins.andrewsbsb.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8"
+}

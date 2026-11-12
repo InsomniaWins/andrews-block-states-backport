@@ -1,0 +1,18 @@
+{
+  "required": true,
+  "minVersion": "0.8.5-GTNH",
+  "package": "wins.insomnia.andrewsbsb.mixin.early",
+  "plugin": "wins.insomnia.andrewsbsb.mixin.AndrewsBSBMixinConfigPlugin",
+  "refmap": "mixins.andrewsbsb.refmap.json",
+  "target": "@env(DEFAULT)",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "BlockMixin",
+    "ChunkMixin",
+    "ForgeHooksMixin",
+    "ItemBlockMixin",
+    "WorldGeneratorMixin"
+  ],
+  "client": [
+  ]
+}
