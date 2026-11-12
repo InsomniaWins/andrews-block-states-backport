@@ -10,7 +10,7 @@ import net.minecraft.block.Block;
 import net.minecraft.nbt.NBTTagCompound;
 
 import wins.insomnia.andrewsbsb.api.blockstate.block.IBlockStateHolder;
-import wins.insomnia.andrewsbsb.mixinduck.IMixinBlockStateHolder;
+import wins.insomnia.andrewsbsb.api.blockstate.block.IMixinBlockStateHolder;
 
 public class BlockState {
 

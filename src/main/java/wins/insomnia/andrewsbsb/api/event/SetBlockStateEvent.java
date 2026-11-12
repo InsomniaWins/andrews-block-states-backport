@@ -1,4 +1,4 @@
-package wins.insomnia.andrewsbsb.event.custom;
+package wins.insomnia.andrewsbsb.api.event;
 
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
@@ -7,7 +7,7 @@ import cpw.mods.fml.common.eventhandler.Event;
 import wins.insomnia.andrewsbsb.AndrewsBSB;
 import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
 import wins.insomnia.andrewsbsb.api.blockstate.block.IBlockStateHolder;
-import wins.insomnia.andrewsbsb.mixinduck.IMixinBlockStateHolder;
+import wins.insomnia.andrewsbsb.api.blockstate.block.IMixinBlockStateHolder;
 
 public class SetBlockStateEvent extends Event {
 
@@ -46,9 +46,7 @@ public class SetBlockStateEvent extends Event {
             defaultBlockState = null;
         }
 
-        if (defaultBlockState != null) {
-            blockState = defaultBlockState;
-        }
+        blockState = defaultBlockState;
     }
 
     @Override

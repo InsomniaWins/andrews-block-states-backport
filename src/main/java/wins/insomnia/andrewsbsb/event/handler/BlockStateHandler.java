@@ -7,7 +7,6 @@ import net.minecraftforge.event.world.ChunkDataEvent;
 
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import wins.insomnia.andrewsbsb.event.EventHandler;
-import wins.insomnia.andrewsbsb.event.custom.SetBlockStateEvent;
 import wins.insomnia.andrewsbsb.mixinduck.IChunkBlockStateDataHolder;
 import wins.insomnia.andrewsbsb.world.chunk.ChunkBlockStateData;
 
@@ -16,9 +15,6 @@ public class BlockStateHandler extends EventHandler {
     public BlockStateHandler() {
         super("block_state");
     }
-
-    @SubscribeEvent
-    public void onSetBlockStateEvent(SetBlockStateEvent event) {}
 
     @SubscribeEvent
     public void onSaveChunkData(ChunkDataEvent.Save event) {

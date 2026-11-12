@@ -9,8 +9,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import com.llamalad7.mixinextras.injector.wrapmethod.WrapMethod;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 
-import wins.insomnia.andrewsbsb.event.custom.SetBlockStateEvent;
-import wins.insomnia.andrewsbsb.util.context.BlockStateEventContext;
+import wins.insomnia.andrewsbsb.api.BlockStateEventContext;
+import wins.insomnia.andrewsbsb.api.event.SetBlockStateEvent;
 
 @Mixin(WorldGenerator.class)
 public class WorldGeneratorMixin {

@@ -5,8 +5,8 @@ import wins.insomnia.andrewsbsb.api.blockstate.BlockStateContainer;
 
 public interface IMixinBlockStateHolder {
 
-    BlockStateContainer aBSB$getBlockStateContainer();
+    BlockStateContainer andrewsBSB$getBlockStateContainer();
 
-    BlockState aBSB$getDefaultBlockState();
+    BlockState andrewsBSB$getDefaultBlockState();
 
 }

@@ -8,8 +8,8 @@ import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Redirect;
 
-import wins.insomnia.andrewsbsb.event.custom.SetBlockStateEvent;
-import wins.insomnia.andrewsbsb.util.context.BlockStateEventContext;
+import wins.insomnia.andrewsbsb.api.BlockStateEventContext;
+import wins.insomnia.andrewsbsb.api.event.SetBlockStateEvent;
 
 @Mixin(ForgeHooks.class)
 public class ForgeHooksMixin {

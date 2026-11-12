@@ -1,6 +1,6 @@
-package wins.insomnia.andrewsbsb.util.context;
+package wins.insomnia.andrewsbsb.api;
 
-import wins.insomnia.andrewsbsb.event.custom.SetBlockStateEvent;
+import wins.insomnia.andrewsbsb.api.event.SetBlockStateEvent;
 
 public class BlockStateEventContext {
 
