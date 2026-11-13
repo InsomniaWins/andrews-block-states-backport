@@ -15,6 +15,8 @@ public enum Mixins implements IMixins {
         .addCommonMixins("ForgeHooksMixin")),
     ITEM_BLOCK(new MixinBuilder("ItemBlockMixin").setPhase(Phase.EARLY)
         .addCommonMixins("ItemBlockMixin")),
+    WORLD_GEN_MINABLE(new MixinBuilder("WorldGenMinableMixin").setPhase(Phase.EARLY)
+        .addCommonMixins("WorldGenMinableMixin")),
     WORLD_GENERATOR(new MixinBuilder("WorldGeneratorMixin").setPhase(Phase.EARLY)
         .addCommonMixins("WorldGeneratorMixin"));
 

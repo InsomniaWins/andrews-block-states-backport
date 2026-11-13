@@ -11,6 +11,7 @@
     "ChunkMixin",
     "ForgeHooksMixin",
     "ItemBlockMixin",
+    "WorldGenMinableMixin",
     "WorldGeneratorMixin"
   ],
   "client": [
