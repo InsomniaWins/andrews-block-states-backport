@@ -21,6 +21,8 @@ public class BlockState {
     private Map<BlockStateProperty<?>, Comparable<?>> properties = new HashMap<>();
     private boolean finalized = false;
 
+    private NBTTagCompound cachedNBT = null;
+
     private BlockState(Block owner) {
         this.owner = owner;
     }
@@ -118,6 +120,16 @@ public class BlockState {
             return blockState;
         }
 
+    }
+
+    public NBTTagCompound getCachedNBT() {
+
+        if (cachedNBT == null) {
+            cachedNBT = new NBTTagCompound();
+            writeToNBT(cachedNBT);
+        }
+
+        return cachedNBT;
     }
 
     @Override

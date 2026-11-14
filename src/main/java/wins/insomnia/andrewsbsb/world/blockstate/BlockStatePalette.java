@@ -1,5 +1,6 @@
 package wins.insomnia.andrewsbsb.world.blockstate;
 
+import java.nio.ByteBuffer;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -22,9 +23,9 @@ public class BlockStatePalette {
     public static final String KEY_INDICES = "AndrewsBSB_Indices";
 
     private final List<BlockState> palette = new ArrayList<>();
-    private final Map<BlockState, Integer> paletteLookup = new HashMap<>();
+    private final Map<BlockState, Short> paletteLookup = new HashMap<>();
 
-    private final int[] indices = new int[4096];
+    private final short[] indices = new short[4096];
 
     public BlockStatePalette() {
         palette.add(null);
@@ -59,9 +60,9 @@ public class BlockStatePalette {
             return;
         }
 
-        Integer paletteIndex = paletteLookup.get(state);
+        Short paletteIndex = paletteLookup.get(state);
         if (paletteIndex == null) {
-            paletteIndex = palette.size();
+            paletteIndex = (short) palette.size();
 
             palette.add(state);
             paletteLookup.put(state, paletteIndex);
@@ -83,7 +84,7 @@ public class BlockStatePalette {
         return Collections.unmodifiableList(palette);
     }
 
-    public int[] getIndices() {
+    public short[] getIndices() {
         return indices.clone();
     }
 
@@ -112,11 +113,11 @@ public class BlockStatePalette {
     // also kind of expensive, so only run occasionally
     public int cleanJunkData() {
 
-        int[] remap = new int[palette.size()];
-        Arrays.fill(remap, -1);
+        short[] remap = new short[palette.size()];
+        Arrays.fill(remap, (short) -1);
 
         List<BlockState> compactedPalette = new ArrayList<>();
-        Map<BlockState, Integer> compactedLookup = new HashMap<>();
+        Map<BlockState, Short> compactedLookup = new HashMap<>();
 
         compactedPalette.add(null);
         remap[0] = 0;
@@ -132,7 +133,7 @@ public class BlockStatePalette {
                 throw new IllegalStateException("Invalid palette index: " + oldIndex);
             }
 
-            int newIndex = remap[oldIndex];
+            short newIndex = remap[oldIndex];
 
             if (newIndex == -1) {
                 BlockState state = palette.get(oldIndex);
@@ -142,12 +143,12 @@ public class BlockStatePalette {
                     continue;
                 }
 
-                Integer existingIndex = compactedLookup.get(state);
+                Short existingIndex = compactedLookup.get(state);
 
                 if (existingIndex != null) {
                     newIndex = existingIndex;
                 } else {
-                    newIndex = compactedPalette.size();
+                    newIndex = (short) compactedPalette.size();
                     compactedPalette.add(state);
                     compactedLookup.put(state, newIndex);
                 }
@@ -175,7 +176,7 @@ public class BlockStatePalette {
         paletteLookup.clear();
 
         NBTTagList states = compound.getTagList(KEY_STATES, 10);
-        for (int i = 0; i < states.tagCount(); i++) {
+        for (short i = 0; i < states.tagCount(); i++) {
 
             NBTTagCompound stateCompound = states.getCompoundTagAt(i);
             BlockState state = null;
@@ -192,12 +193,15 @@ public class BlockStatePalette {
 
         }
 
-        int[] savedIndices = compound.getIntArray(KEY_INDICES);
-        if (savedIndices.length != indices.length) {
+        byte[] savedIndices = compound.getByteArray(KEY_INDICES);
+        if (savedIndices.length != indices.length * 2) {
             throw new IllegalStateException("Invalid indices array length: " + savedIndices.length);
         }
 
-        System.arraycopy(savedIndices, 0, indices, 0, indices.length);
+        ByteBuffer buffer = ByteBuffer.wrap(savedIndices);
+        for (int i = 0; i < indices.length; i++) {
+            indices[i] = buffer.getShort();
+        }
 
     }
 
@@ -211,18 +215,25 @@ public class BlockStatePalette {
         NBTTagList states = new NBTTagList();
 
         for (BlockState state : palette) {
-            NBTTagCompound stateCompound = new NBTTagCompound();
-            if (state == null) {
+            NBTTagCompound stateCompound = null;
+            if (state == null || state.getCachedNBT() == null) {
+                stateCompound = new NBTTagCompound();
                 stateCompound.setBoolean(KEY_EMPTY, true);
             } else {
-                state.writeToNBT(stateCompound);
+                stateCompound = state.getCachedNBT();
             }
 
             states.appendTag(stateCompound);
         }
 
         compound.setTag(KEY_STATES, states);
-        compound.setIntArray(KEY_INDICES, indices);
+
+        byte[] byteIndices = new byte[indices.length * 2];
+        ByteBuffer.wrap(byteIndices)
+            .asShortBuffer()
+            .put(indices);
+
+        compound.setByteArray(KEY_INDICES, byteIndices);
 
     }
 
