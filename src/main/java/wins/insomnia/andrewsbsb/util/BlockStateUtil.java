@@ -6,10 +6,12 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
 
+import cpw.mods.fml.common.eventhandler.Event;
 import wins.insomnia.andrewsbsb.AndrewsBSB;
 import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
 import wins.insomnia.andrewsbsb.api.blockstate.block.IBlockStateHolder;
 import wins.insomnia.andrewsbsb.api.blockstate.block.IMixinBlockStateHolder;
+import wins.insomnia.andrewsbsb.mixinduck.IBlockStateHoldingMixin;
 import wins.insomnia.andrewsbsb.mixinduck.IChunkBlockStateDataHolder;
 import wins.insomnia.andrewsbsb.world.chunk.ChunkBlockStateData;
 
@@ -19,6 +21,19 @@ public class BlockStateUtil {
 
     private static String getChunkString(Chunk chunk, int blockX, int blockY, int blockZ) {
         return "Chunk at " + blockX + ", " + blockY + ", " + blockZ;
+    }
+
+    public static Optional<BlockState> getBlockState(Event event) {
+        if (event instanceof IBlockStateHoldingMixin) {
+            return ((IBlockStateHoldingMixin) event).andrewsBSB$getBlockState();
+        }
+        return Optional.empty();
+    }
+
+    public static void setBlockState(Event event, BlockState blockState) {
+        if (event instanceof IBlockStateHoldingMixin) {
+            ((IBlockStateHoldingMixin) event).andrewsBSB$setBlockState(blockState);
+        }
     }
 
     public static void setBlockState(World world, int blockX, int blockY, int blockZ, BlockState blockState)

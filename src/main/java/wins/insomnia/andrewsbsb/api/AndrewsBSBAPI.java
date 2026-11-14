@@ -7,11 +7,20 @@ import javax.annotation.Nullable;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.Chunk;
+import net.minecraftforge.event.world.BlockEvent;
 
 import wins.insomnia.andrewsbsb.api.blockstate.BlockState;
 import wins.insomnia.andrewsbsb.util.BlockStateUtil;
 
 public class AndrewsBSBAPI {
+
+    public static Optional<BlockState> getBlockState(BlockEvent.BreakEvent event) {
+        return BlockStateUtil.getBlockState(event);
+    }
+
+    public static Optional<BlockState> getBlockState(BlockEvent.HarvestDropsEvent event) {
+        return BlockStateUtil.getBlockState(event);
+    }
 
     public static void setBlockState(World world, int blockX, int blockY, int blockZ, @Nullable BlockState blockState)
         throws Exception {

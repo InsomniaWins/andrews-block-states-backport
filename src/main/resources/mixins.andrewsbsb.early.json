@@ -7,10 +7,14 @@
   "target": "@env(DEFAULT)",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "BlockBreakEventMixin",
     "BlockMixin",
     "ChunkMixin",
+    "ForgeEventFactoryMixin",
     "ForgeHooksMixin",
+    "HarvestDropsEventMixin",
     "ItemBlockMixin",
+    "ItemInWorldManagerMixin",
     "WorldGenMinableMixin",
     "WorldGeneratorMixin"
   ],
